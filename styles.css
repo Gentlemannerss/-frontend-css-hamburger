@@ -1,0 +1,89 @@
+:root {
+    --main-color: #D84282;
+    --menu-bar-width: 60px;
+    --menu-bar-height: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menu-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*border: 2px solid indianred;*/
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+}
+
+#menu {
+    position: absolute;
+    width: var(--menu-bar-width);
+    height: var(--menu-bar-height);
+    background-color: var(--main-color);
+    border-radius: 3px;
+}
+
+#menu::before,
+#menu::after {
+    content: "";
+    position: absolute;
+    width: var(--menu-bar-width);
+    height: var(--menu-bar-height);
+    background-color: var(--main-color);
+    border-radius: 3px;
+}
+
+#menu::before {
+    top: -20px;
+}
+
+#menu::after {
+    top: 20px;
+}
+
+.menu-box:hover #menu {
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.2s;
+}
+
+.menu-box:hover #menu::before {
+    transform: rotate(45deg) translate(0, 0);
+    top: 0;
+    transition: 1s;
+}
+
+.menu-box:hover #menu::after {
+    transform: rotate(314deg) translate(0, 0); /*Zorgt voor de extra draai, lekker fancy*/
+    top: 0;
+    transition: 1s;
+}
+
+
+/* Styling the webshop*/
+
+a,
+a:link,
+a:visited {
+    font-family: Sylfaen, serif;
+    font-size: 30px;
+    color: #D84282;
+    text-decoration: none;
+}
+
+a::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 3px;
+    background-color: #D84282;
+    transition: width .35s ease-in-out;
+}
+
+a:hover::after {
+    width: 100%;
+}
